@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <title>Calculator</title>
+        <link href="css/styles.css" rel="stylesheet" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="js/script.js"></script>
+    </head>
+    <body>
+        <div id="container">
+            <h1>Calculator</h1>
+            <div id="displayContainer">
+                <input id="display" type="text" name="display" value="0" disabled>
+            </div>
+            <div id="first-row">
+                <button id="clear">AC</button>
+                <button id="del">CE</button>
+                <button class="operators" value="/">/</button>
+            </div>
+            <div id="second-row">
+                <button class="numbers" value="7">7</button>
+                <button class="numbers" value="8">8</button>
+                <button class="numbers" value="9">9</button>
+                <button class="operators" value="*">*</button>
+            </div>
+            <div id="third-row">
+                <button class="numbers" value="4">4</button>
+                <button class="numbers" value="5">5</button>
+                <button class="numbers" value="6">6</button>
+                <button class="operators" value="-">-</button>
+            </div>
+            <div id="fourth-row">
+                <button class="numbers" value="1">1</button>
+                <button class="numbers" value="2">2</button>
+                <button class="numbers" value="3">3</button>
+                <button class="operators" value="+">+</button>
+            </div>
+            <div id="fifth-row">
+                <button class="numbers" value="0">0</button>
+                <button id="decimal" value=".">.</button>
+                <button id="equal">=</button>
+            </div>
+        </div>
+    </body>
+</html>
