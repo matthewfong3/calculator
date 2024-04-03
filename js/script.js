@@ -24,8 +24,10 @@ $(document).ready(() => {
     
     for(let b of operatorsBtns){
         b.addEventListener('click', () => {
-            decimalBtn.disabled = false;
-            display.value = saveOperatorInputs(userInputs, b.value);
+            if(!userInputs.rInput){
+                decimalBtn.disabled = false;
+                display.value = saveOperatorInputs(userInputs, b.value);
+            }
         });
     }
 
@@ -66,8 +68,10 @@ $(document).ready(() => {
             case '-':
             case '*':
             case '/':
-                decimalBtn.disabled = false; // toggle decimal button ON for second number    
-                display.value = saveOperatorInputs(userInputs, e.key);
+                if(!userInputs.rInput){
+                    decimalBtn.disabled = false; // toggle decimal button ON for second number    
+                    display.value = saveOperatorInputs(userInputs, e.key);
+                }
                 break;
             case '.':
                 if(!decimalBtn.disabled){
@@ -104,10 +108,10 @@ const saveNumberInputs = (userInputs, val) => {
 
 const saveOperatorInputs = (userInputs, val) => {
     if(!userInputs.rInput && userInputs.operator) userInputs.displayString = userInputs.displayString.slice(0, -1); // allows user to change operator 
-            
+    
     userInputs.displayString += val;
     userInputs.operator = val;
-
+    
     return userInputs.displayString;
 };
 
@@ -156,7 +160,7 @@ const evaluateExpression = (userInputs, decimalBtn) => {
         userInputs.rInput = undefined;
         userInputs.operator = undefined;
         decimalBtn.disabled = false;
-        return 'ERROR - INVALID PARAMS';
+        return 'ERROR!';
     }
 }
 
@@ -229,6 +233,6 @@ const multiply = (a, b) => {
 }; 
 
 const divide = (a, b) => {
-    if(Number(b) === 0) return "d0nut do that please";
+    if(Number(b) === 0) return "bruh";
     return Number(a) / Number(b);
 };
